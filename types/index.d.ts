@@ -201,7 +201,11 @@ declare interface BankTabItemProps {
   account: Account;
   appwriteItemId?: string;
 }
-
+declare interface SidebarLink {
+  imgURL: string;
+  label: string;
+  route: string;
+}
 declare interface TotlaBalanceBoxProps {
   accounts: Account[];
   totalBanks: number;
