@@ -5,10 +5,11 @@ import React from 'react'
 import {sidebarLinks} from '../constants/index'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import Footer from './Footer'
 
-const Sidebar = () => {
+const Sidebar = ({user}:SiderbarProps) => {
     const pathname = usePathname()
-    console.log(pathname)
+    
   return (
     <section className="sidebar">
         <nav className='flex flex-col gap-4'>
@@ -27,7 +28,7 @@ const Sidebar = () => {
             {
                 sidebarLinks.map((val) => {
                     const isActive = (pathname === val.route) || val.route.startsWith(`${val.route}/`)
-                  console.log(isActive)
+                  
                  return (  <Link
                    href={val.route}
                    key={val.label}
@@ -45,6 +46,9 @@ const Sidebar = () => {
                 })
             }
         </nav>
+       <Footer user={user}/>
+        
+     
     </section>
   )
 }

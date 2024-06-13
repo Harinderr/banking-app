@@ -12,7 +12,7 @@ const RightSideBar = ({ transactions, banks,user}: RightSidebarProps) => {
                 </div>
                 <div className="aboslute -top-10 left-5 text-xl font-bold profile rounded-full h-20 w-20 text-white bg-bankGradient flex justify-self-center items-center ">H</div>
                 <div className="user_details ml-5">
-                    <h3 className='font-bold'>{user.firstName}</h3>
+                    <h3 className='font-bold'>{user.name}</h3>
                     <p className='text-sm'>{user.email}</p>
                 </div>
                 <div className="flex flex-row justify-between px-8 py-6">
@@ -26,7 +26,7 @@ const RightSideBar = ({ transactions, banks,user}: RightSidebarProps) => {
                 <div className="user_name text-white text-sm">HDFC BANK</div>
                 <div className="card_dt font-bold  text-sm text-white tracking-wider">
                     <div className="user-info flex justify-between p-2 font-thin tracking-widest">
-                        <span>{user.firstName}</span>
+                        <span>{user.name}</span>
                         <span>/5/2016</span>
                     </div>
                     <div className="card_number flex flex-row justify-between">
@@ -40,7 +40,7 @@ const RightSideBar = ({ transactions, banks,user}: RightSidebarProps) => {
                 <div className="user_name text-white text-sm">ICICI BANK</div>
                 <div className="card_dt font-bold  text-sm text-white tracking-wider">
                     <div className="user-info flex justify-between p-2 font-thin tracking-widest">
-                        <span>{user.firstName}</span>
+                        <span>{user.name}</span>
                         <span>/5/2016</span>
                     </div>
                     <div className="card_number flex flex-row justify-between">

@@ -34,8 +34,8 @@ import {
          
             {
                 sidebarLinks.map((val) => {
-                    const isActive = (pathname === val.route) || val.route.startsWith(`${val.route}/`)
-                  console.log(isActive)
+                    const isActive:boolean = (pathname === val.route) || val.route.startsWith(`${val.route}/`)
+                  
                  return ( 
                     <SheetClose asChild key={val.route}>
                     <Link

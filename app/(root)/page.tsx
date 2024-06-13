@@ -2,7 +2,11 @@ import Image from "next/image";
 import HeaderBox from "@/components/HeaderBox";
 import TotalBalanceBox from "@/components/TotalBalanceBox";
 import RightSideBar from "@/components/RightSideBar";
-export default function Home() {
+import { getLoggedInUser } from "@/lib/appwrite";
+export default async  function Home() {
+  
+const loggedInUser = await getLoggedInUser()
+console.log(loggedInUser)
   const userdetails = {
     firstName : 'Shyam',
     email : 'Shyma34@gmail.com'
@@ -15,7 +19,7 @@ export default function Home() {
          type="greeting"
          title="Welcome"
          subtext="Mange you account and finances effciecently with Bankoo"
-         user={userdetails.username}
+         user={loggedInUser?.name}
          
          ></HeaderBox>
          <TotalBalanceBox 
@@ -30,7 +34,7 @@ export default function Home() {
       <RightSideBar
      banks={[]}
      transactions={[]}
-    user={userdetails}
+    user={loggedInUser}
      ></RightSideBar>
     </section>
   )
