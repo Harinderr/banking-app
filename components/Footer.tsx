@@ -16,7 +16,7 @@ const Footer = ({user}:FooterProps) => {
     
   return (
     <footer className='footer flex flex-row justify-between'>
-        <div className="container ">
+        <div className="container md:hidden ">
             <div className="footer_name text-black-2 font-bold">{user?.name}</div>
             <div className="footer_email text-black-2 font-semibold">{user?.email}</div>
         </div>

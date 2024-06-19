@@ -5,17 +5,19 @@ import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const RoundChart = () => {
+const RoundChart = ({accounts}: DoughnutChartProps) => {
+  const banks = accounts.map(a => a.name)
+  const balances = accounts.map(a => a.currentBalance)
     const data = {
         datasets : [
             {
                 label : 'Banks',
-                data : [1000,2300,4500 ],
+                data : balances,
                 backgroundColor : ['blue', 'red', 'green']
             },
 
         ],
-        labels : ['SBI', 'HDFC', 'ICICI' ]
+        labels : banks
     }
   return (
     <Doughnut data ={data}
