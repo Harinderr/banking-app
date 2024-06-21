@@ -26,10 +26,12 @@ import { useRouter } from 'next/navigation'
 import { userContext } from '@/provider/userContextProvider'
 
 const AuthForm  =  ({type}:{type : string}) => {
+  
   const [isLoading, setIsLoading] = useState(false)
   
    const [user, setUser] = useState<User | null>(null)
   const router = useRouter()
+
   
 
   
@@ -75,7 +77,7 @@ const userData  = {
     }
     else {
    const user =   await   singIn(data)
-   
+   setUser(user)
    router.push('/')
     }
     

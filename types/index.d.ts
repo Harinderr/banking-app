@@ -143,6 +143,10 @@ declare interface CreditCardProps {
   showBalance?: boolean;
 }
 
+declare interface BankCardProps {
+  account: Account;
+  user: string;
+}
 declare interface BankInfoProps {
   account: Account;
   appwriteItemId?: string;
@@ -235,6 +239,7 @@ declare interface RecentTransactionsProps {
 }
 
 declare interface TransactionHistoryTableProps {
+  
   transactions: Transaction[];
   page: number;
 }

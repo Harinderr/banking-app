@@ -6,12 +6,12 @@ import { createContext } from "react";
 export const userContext = createContext<User | null>(null)
 
  export function UserContextProvider({children}:{children : ReactNode}) {
-   const [user, setUser] = useState<User | null>(null)
+   const [id, setId] = useState<User | null>(null)
     
 
    const getUser = useCallback(async ()=> {
     const LoggedInUser = await getLoggedInUser()
-    setUser(LoggedInUser)
+    setId(LoggedInUser.$id)
    },[])
 
     useEffect(()=> {
@@ -19,7 +19,7 @@ export const userContext = createContext<User | null>(null)
     },[getUser])
  
     return (
-        <userContext.Provider value = {user}>
+        <userContext.Provider value = {id}>
             {children}
         </userContext.Provider>
     )

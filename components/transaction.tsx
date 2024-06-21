@@ -1,18 +1,26 @@
-
+'use client'
 // import BankTransactionTab from "./BankTransactionTab";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SingleTransaction from "./SingleTransaction";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 
 
 
-const Transactions = ({
+const Transactions =  ({
   accounts,
   appwriteItemId,
   page,
-  transactions,
+  transactions = [],
 }: RecentTransactionsProps) => {
- 
+ const router = useRouter()
+ const handleAccount = (id:string) => {
+  router.push(`/?id=${id}`)
+ }
+ useEffect(()=> {
+  router.push(`/?id=${appwriteItemId}`)
+ },[])
   return (
     <section>
       <h1 className="text-xl font-bold">Recent Transactions</h1>
@@ -22,7 +30,7 @@ const Transactions = ({
            
             return (
              
-              <TabsTrigger key={account.id} value={`${account.appwriteItemId}`}   >
+              <TabsTrigger key={account.id} value={`${account.appwriteItemId}`} onClick={() => handleAccount(account?.appwriteItemId)}  >
                 {account.name}
               </TabsTrigger>
              
@@ -30,11 +38,11 @@ const Transactions = ({
             );
           })}
               </TabsList>
-              {accounts.map((account : Account) => (
-          <TabsContent key={account.id} value={`${account.appwriteItemId}`}>
-            <SingleTransaction transactions={transactions} page={page} />
-          </TabsContent>
-        ))}
+              {accounts.map((account : Account) =>  {
+       return (  <TabsContent key={account.id} value={`${account.appwriteItemId}`}>
+            <SingleTransaction  transactions={transactions} page={page} />
+          </TabsContent>)
+              })}
        
       </Tabs>
      

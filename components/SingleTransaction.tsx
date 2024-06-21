@@ -1,5 +1,5 @@
 'use client'
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import {
     Table,
     TableBody,
@@ -11,6 +11,8 @@ import {
   } from "@/components/ui/table"
   import { getTransactionStatus, removeSpecialCharacters } from "@/lib/utils"
 import { transactionCategoryStyles } from "@/constants"
+import { useContext } from "react"
+import { userContext } from "@/provider/userContextProvider"
 
 // const CategoryHighlight = ({children}) => {
 //   const {
@@ -29,11 +31,15 @@ import { transactionCategoryStyles } from "@/constants"
 // }
 
 const SingleTransaction = ({transactions,page}:TransactionHistoryTableProps) => {
+   let pathname = usePathname()
+   console.log(pathname)
   const router = useRouter()
+  const id = useContext(userContext)
   const handleNext = (pgNo:number) => {
     let transactionLength = transactions.length
     let nextPage =  pgNo*5 < transactionLength && pgNo + 1 
-   router.push(`/?page=${nextPage}`)
+  
+    router.push(`${pathname}?page=${nextPage}`)
 
   }
   const handlePrevious = (pgNo:number) => {
@@ -55,7 +61,7 @@ const SingleTransaction = ({transactions,page}:TransactionHistoryTableProps) => 
   let min = max - 5
 
 const LimitedTransactions = transactions.slice(min,max)
-console.log(transactions[0])
+
   return (
     <>
     <Table>

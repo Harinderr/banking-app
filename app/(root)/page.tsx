@@ -5,6 +5,7 @@ import RightSideBar from "@/components/RightSideBar";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
 import { getAccount, getAccounts } from "@/lib/actions/bank.actions";
 import Transactions from "@/components/transaction";
+import { useEffect } from "react";
 export default async  function Home({searchParams : { id, page }}:SearchParamProps) {
   
 const loggedInUser = await getLoggedInUser()
@@ -12,13 +13,14 @@ const loggedInUser = await getLoggedInUser()
 const pageNumber = Number(page) || 1
 
   const accounts = loggedInUser?.$id &&  await getAccounts({userId : loggedInUser.$id})
-  console.log('this is accounts',accounts)
+  // console.log('this is accounts',accounts)
 
   if(!accounts) return;
   const appwriteItemId = (id as string) || accounts?.data[0]?.appwriteItemId
   
 const account = await getAccount({appwriteItemId})
 // console.log('this is account', account)
+
   return (
     <section className="home flex flex-row ">
       <div className="home-content w-2/3">

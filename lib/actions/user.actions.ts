@@ -257,3 +257,20 @@ export const getBank = async ({documentId}:getBankProps) => {
     console.log(error)
   }
 }
+
+export const getBankByAccountId  = async ({accountId}:getBankByAccountIdProps) => {
+    try {
+      const {database} = await createAdminClient()
+      const data = await database.listDocuments(
+        DATABASE_ID!,
+        BANK_COLLECTION_ID!,
+        [Query.equal('accountId', [accountId])]
+
+      )
+      if(data.total !== 1) return null;
+
+      return parseStringify(data.documents[0])
+    } catch (error) {
+      console.log('error fetching bankaccount ID', error)
+    }
+}
