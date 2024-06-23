@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 
 interface PlaidLinkProps {
   user: any; // Replace 'any' with the appropriate type for user
-  variant: 'primary' | 'ghost';
+  variant?: 'primary' | 'ghost';
   
 }
 
