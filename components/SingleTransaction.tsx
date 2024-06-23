@@ -9,7 +9,7 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
-  import { getTransactionStatus, removeSpecialCharacters } from "@/lib/utils"
+  import { formatDateTime, getTransactionStatus, removeSpecialCharacters } from "@/lib/utils"
 import { transactionCategoryStyles } from "@/constants"
 import { useContext } from "react"
 import { userContext } from "@/provider/userContextProvider"
@@ -34,7 +34,7 @@ const SingleTransaction = ({transactions,page}:TransactionHistoryTableProps) => 
    let pathname = usePathname()
    console.log(pathname)
   const router = useRouter()
-  const id = useContext(userContext)
+  const user = useContext(userContext)
   const handleNext = (pgNo:number) => {
     let transactionLength = transactions.length
     let nextPage =  pgNo*5 < transactionLength && pgNo + 1 
@@ -60,7 +60,13 @@ const SingleTransaction = ({transactions,page}:TransactionHistoryTableProps) => 
   let max = page * 5
   let min = max - 5
 
-const LimitedTransactions = transactions.slice(min,max)
+const LimitedTransactions = transactions.slice(min,max) 
+
+const formatDate = (d:string) => {
+  const date = new Date(d);
+const formattedDate = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${date.getUTCDate().toString().padStart(2, '0')}`;
+return formattedDate
+}
 
   return (
     <>
@@ -93,7 +99,7 @@ const LimitedTransactions = transactions.slice(min,max)
                     <TableCell className="font-medium">{removeSpecialCharacters(val.name)}</TableCell>
                     <TableCell className={`font-semiBold ${val.amount < 0 ? 'text-red-600': 'text-green-600'}`}>{'$' + Number(val.amount)}</TableCell>
                     <TableCell >{status}</TableCell>
-                    <TableCell className="text-center">{val.date}</TableCell>
+                    <TableCell className="text-center">{formatDate(val.date)}</TableCell>
                     <TableCell className="text-center">{val.paymentChannel}</TableCell>
                     <TableCell className="text-right">{val.category}</TableCell>
                     </TableRow>

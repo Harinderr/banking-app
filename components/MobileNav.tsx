@@ -13,9 +13,13 @@ import {
     SheetTitle,
     SheetTrigger,
   } from "@/components/ui/sheet"
+import PlaidLink from './PlaidLInk'
+import { useContext } from 'react'
+import { userContext } from '@/provider/userContextProvider'
  
  const MobileNav = () => {
     const pathname = usePathname()
+    const user = useContext(userContext)
    return (
    <section className="mobile_nav flex flex-row justify-between p-6 md:hidden">
     <Link href='/'>
@@ -41,7 +45,7 @@ import {
                     <Link
                    href={val.route}
                    key={val.label}
-                   className={cn('sidebar-link flex flex-row p-4 justify-between',{'bg-bankGradient': isActive})}
+                   className={cn('sidebar-link  flex flex-row p-4 justify-start',{'bg-bankGradient': isActive})}
                    >
                     <div className="size-6 relative">
                     <Image src={val.imgURL} alt='no img' fill 
@@ -55,6 +59,7 @@ import {
                     )
                 })
             }
+            <PlaidLink user={user} variant='ghost'></PlaidLink>
         </nav>
   </SheetContent>
 </Sheet>

@@ -3,15 +3,17 @@ import { getLoggedInUser } from "@/lib/actions/user.actions";
 import { ReactNode, useCallback, useEffect, useState } from "react";
 import { createContext } from "react";
 
-export const userContext = createContext<User | null>(null)
+export const userContext = createContext<User| null>(null)
 
  export function UserContextProvider({children}:{children : ReactNode}) {
-   const [id, setId] = useState<User | null>(null)
+  
+   const [user, setUser] = useState<User | null>(null)
     
 
    const getUser = useCallback(async ()=> {
     const LoggedInUser = await getLoggedInUser()
-    setId(LoggedInUser.$id)
+   
+    setUser(LoggedInUser)
    },[])
 
     useEffect(()=> {
@@ -19,7 +21,7 @@ export const userContext = createContext<User | null>(null)
     },[getUser])
  
     return (
-        <userContext.Provider value = {id}>
+        <userContext.Provider value = {user}>
             {children}
         </userContext.Provider>
     )

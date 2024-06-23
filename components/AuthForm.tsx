@@ -98,7 +98,7 @@ const userData  = {
   return (
     <section className=' shadow-lg h-screen '>
       <div className="left w-full p-8    h-screen flex overflow-y-scroll flex-col justify-center ">
-      { (!user) ? ( 
+      { (!user ) ? ( 
         <div className="formWrapper  w-3/5 h-full mx-auto ">
       <Link href='/' className='flex flex-row items-center gap-2'>
     
@@ -169,12 +169,12 @@ const userData  = {
     </p>
     </div>
    ) : (
-     <>
+   type != 'signin' && ( <>
      <h1>link account</h1>
      <div>
     <PlaidLink user={user} variant = 'primary'></PlaidLink>
   </div>
-      </>
+      </>)
     ) } 
     </div>
     </section>

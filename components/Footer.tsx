@@ -16,12 +16,17 @@ const Footer = ({user}:FooterProps) => {
     
   return (
     <footer className='footer flex flex-row justify-between'>
-        <div className="container md:hidden ">
-            <div className="footer_name text-black-2 font-bold">{user?.name}</div>
-            <div className="footer_email text-black-2 font-semibold">{user?.email}</div>
+      <div className="user_wrapper md:hidden lg:flex flex gap-2 flex-row">
+      <div className="w-10 h-10  bg-green-500 text-white font-bold flex justify-center items-center rounded-full">
+      {user?.firstName.slice(0,1).toUpperCase()}
+      </div>
+        <div>
+            <div className=" text-black-2 font-bold">{user?.firstName}</div>
+            <div className=" text-black-2 font-semibold">{user?.email}</div>
+        </div>
         </div>
         <div className="footer_image" onClick={handleLogout}>
-        <Image src={'/icons/logout.svg'} height={40} width={40} alt='logout'></Image>
+        <Image src={'/icons/logout.svg'} height={50} width={50} alt='logout'></Image>
         </div>
       
     </footer>

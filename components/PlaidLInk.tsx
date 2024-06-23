@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation'
 interface PlaidLinkProps {
   user: any; // Replace 'any' with the appropriate type for user
   variant: 'primary' | 'ghost';
+  
 }
 
 const PlaidLink: React.FC<PlaidLinkProps> = ({ user, variant }) => {
@@ -48,8 +49,16 @@ const PlaidLink: React.FC<PlaidLinkProps> = ({ user, variant }) => {
           Connect Bank
         </Button>
       ) : variant === 'ghost' ? (
-        <Button onClick={() => open()} disabled={!ready}>
-          Connect Button
+        <Button className='flex gap-2' onClick={() => open()} disabled={!ready}>
+              <Image
+                src={'/icons/connect-bank.svg'}
+                height={24}
+                width={24}
+                alt='connect image'
+                ></Image>
+           
+           <p className='text-lg'>Connect Bank</p> 
+          
         </Button>
       ) : (
         <Button className='sidebar-link' onClick={() => open()} disabled={!ready}>
@@ -60,6 +69,7 @@ const PlaidLink: React.FC<PlaidLinkProps> = ({ user, variant }) => {
                 width={24}
                 alt='connect image'
                 ></Image>
+           
            <span className='sidebar-label'>Connect Bank</span> 
         </Button>
       )}
