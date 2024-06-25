@@ -4,13 +4,17 @@ import { getAccounts } from '@/lib/actions/bank.actions';
 import { getLoggedInUser } from '@/lib/actions/user.actions';
 import React from 'react'
 
-const MyBanks = async () => {
+interface MyBanksProps {
+  accounts: Account[];
+  loggedIn: User;
+}
+
+const MyBanks: React.FC<MyBanksProps> = async () => {
   const loggedIn = await getLoggedInUser();
   const accounts = await getAccounts({ 
     userId: loggedIn.$id 
   })
-
-  return (
+ return (
     <section className='flex'>
       <div className="my-banks">
         <HeaderBox 
@@ -23,7 +27,7 @@ const MyBanks = async () => {
             Your cards
           </h2>
           <div className="flex flex-wrap gap-6">
-            {accounts && accounts.data.map((a: Account) => (
+            {accounts && accounts?.data?.map((a: Account) => (
               <BankCard 
                 key={a.id}
                 account={a}
@@ -36,5 +40,8 @@ const MyBanks = async () => {
     </section>
   )
 }
+
+
+
 
 export default MyBanks

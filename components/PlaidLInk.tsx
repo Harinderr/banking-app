@@ -43,13 +43,13 @@ const PlaidLink: React.FC<PlaidLinkProps> = ({ user, variant }) => {
   }, [user])
 
   return (
-    <div>
+   <>
       {variant === 'primary' ? (
         <Button className='bg-bankGradient' onClick={() => open()} disabled={!ready}>
           Connect Bank
         </Button>
       ) : variant === 'ghost' ? (
-        <Button className='flex gap-2' onClick={() => open()} disabled={!ready}>
+        <Button className='sidebar-link flex gap-2' onClick={() => open()} disabled={!ready}>
               <Image
                 src={'/icons/connect-bank.svg'}
                 height={24}
@@ -62,19 +62,17 @@ const PlaidLink: React.FC<PlaidLinkProps> = ({ user, variant }) => {
         </Button>
       ) : (
         <Button className='sidebar-link' onClick={() => open()} disabled={!ready}>
-            
-                <Image
-                src={'/icons/connect-bank.svg'}
-                height={24}
-                width={24}
-                alt='connect image'
-                ></Image>
            
-           <span className='sidebar-label'>Connect Bank</span> 
-        </Button>
-      )}
-    </div>
+                    <div className="size-6 relative">
+                    <Image src={'/icons/connect-bank.svg'} alt='no img' fill ></Image>
+                    
+                    </div>
+                   <p className={'sidebar-label'}>Connect Bank</p>
+                  
+    
+    </Button>
   )
-}
 
+}
+</> )}
 export default PlaidLink

@@ -11,24 +11,10 @@ import {
   } from "@/components/ui/table"
   import { formatDateTime, getTransactionStatus, removeSpecialCharacters } from "@/lib/utils"
 import { transactionCategoryStyles } from "@/constants"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { userContext } from "@/provider/userContextProvider"
 
-// const CategoryHighlight = ({children}) => {
-//   const {
-//     borderColor,
-// backgroundColor,
-// textColor,
-// chipBackgroundColor,
-//    } = transactionCategoryStyles[category as keyof typeof transactionCategoryStyles] ||
-//    transactionCategoryStyles.default
-// return (
-//   <div className="box">
-//     <div className="dot "></div>
-//     <p>{children}</p>
-//   </div>
-// )
-// }
+
 
 const SingleTransaction = ({transactions,page}:TransactionHistoryTableProps) => {
    let pathname = usePathname()
@@ -67,6 +53,7 @@ const formatDate = (d:string) => {
 const formattedDate = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${date.getUTCDate().toString().padStart(2, '0')}`;
 return formattedDate
 }
+
 
   return (
     <>

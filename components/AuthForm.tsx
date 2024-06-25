@@ -100,13 +100,13 @@ const userData  = {
       <div className="left w-full p-8    h-screen flex overflow-y-scroll flex-col justify-center ">
       { (!user ) ? ( 
         <div className="formWrapper  w-3/5 h-full mx-auto ">
-      <Link href='/' className='flex flex-row items-center gap-2'>
+      <Link href='/' className='flex flex-row items-center justify-center gap-2'>
     
-    <Image src={'/icons/logo.svg'} height={50} width={50} alt='no image'></Image>
-   <h1 className='text-xl font-bold'>Bankoo</h1>
+    {/* <Image src={'/icons/logo.svg'} height={50} width={50} alt='no image'></Image> */}
+   <h1 className='text-2xl font-bold'>Bankoo</h1>
   
     </Link>
-    <h1 className='text-xl font-bold my-6'>{ type === 'signin' ? 'Sign Up' : 'Sign In'}</h1>
+    <h1 className='text-xl font-bold my-6'>{ type === 'signin' ? 'SIGN IN' : 'SIGN UP'}</h1>
 
 
 

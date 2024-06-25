@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import { UserContextProvider } from "@/provider/userContextProvider";
-const inter = Inter({ subsets: ["latin"] });
+const ubuntu = Ubuntu({ 
+  subsets: ["latin"],
+  weight : ['300', '400', '500', '700'], 
+   variable : '--font-ubuntu'
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={ubuntu.variable}>
         <UserContextProvider>
         {children}
         </UserContextProvider>
