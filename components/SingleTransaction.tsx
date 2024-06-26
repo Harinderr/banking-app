@@ -84,7 +84,7 @@ return formattedDate
                  
                   <TableRow key={val.id} className={`rounded-lg mb-1 opacity-90 ${val.amount < 0 ? 'bg-red-950' : 'bg-green-950'}`}>
                     <TableCell className="font-medium text-white">{removeSpecialCharacters(val.name)}</TableCell>
-                    <TableCell className={`font-semiBold ${val.amount < 0 ? 'text-red-600': 'text-green-600'}`}>{'$' + Number(val.amount)}</TableCell>
+                    <TableCell className={`font-semiBold ${val.type == 'debit' ? 'text-red-600': 'text-green-600'}`}>{'$' + Number(val.amount)}</TableCell>
                     <TableCell >{status}</TableCell>
                     <TableCell className="text-center">{formatDate(val.date)}</TableCell>
                     <TableCell className="text-center">{val.paymentChannel}</TableCell>

@@ -19,7 +19,7 @@ const pageNumber = Number(page) || 1
   const appwriteItemId = (id as string) || accounts?.data[0]?.appwriteItemId
   
 const account = await getAccount({appwriteItemId})
-// console.log('this is account', account)
+console.log('this is account', account)
 
   return (
     <section className="home flex flex-row ">
