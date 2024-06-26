@@ -24,7 +24,7 @@ const TransactionHistory = async ({ searchParams: { id, page }}:SearchParamProps
 
 
   return (
-    <div className="transactions">
+    <div className="transactions bg-black-1">
       <div className="transactions-header">
         <HeaderBox 
           title="Transaction History"

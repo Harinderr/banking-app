@@ -32,10 +32,10 @@ const BankDropdown = ({
     <div>BankDropdown
 
 <Select defaultValue={defaultAccount.id} onValueChange={(val) => handleChange(val)}>
-  <SelectTrigger className="w-[180px] bg-white ">
-    <SelectValue placeholder="Select Bank" />
+  <SelectTrigger className="w-[180px] bg-slate-800 ">
+    <SelectValue className="text-white" placeholder="Select Bank" />
   </SelectTrigger>
-  <SelectContent className="bg-white">
+  <SelectContent className="bg-slate-800 text-white">
     {
         accounts.map(val => {
             return (

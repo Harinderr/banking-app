@@ -43,8 +43,8 @@ const SingleTransaction = ({transactions,page}:TransactionHistoryTableProps) => 
  
   
   
-  let max = page * 5
-  let min = max - 5
+  let max = page * 8
+  let min = max - 8
 
 const LimitedTransactions = transactions.slice(min,max) 
 
@@ -82,8 +82,8 @@ return formattedDate
              
                 return (
                  
-                    <TableRow key={val.id} className={` rounded-lg mb-1 ${val.amount < 0 ? 'bg-[#f8f0f0]' : 'bg-[#edf4e9]'}`}>
-                    <TableCell className="font-medium">{removeSpecialCharacters(val.name)}</TableCell>
+                  <TableRow key={val.id} className={`rounded-lg mb-1 opacity-90 ${val.amount < 0 ? 'bg-red-950' : 'bg-green-950'}`}>
+                    <TableCell className="font-medium text-white">{removeSpecialCharacters(val.name)}</TableCell>
                     <TableCell className={`font-semiBold ${val.amount < 0 ? 'text-red-600': 'text-green-600'}`}>{'$' + Number(val.amount)}</TableCell>
                     <TableCell >{status}</TableCell>
                     <TableCell className="text-center">{formatDate(val.date)}</TableCell>

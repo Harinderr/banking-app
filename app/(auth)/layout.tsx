@@ -6,10 +6,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-   <main className=" min-h-screen w-full grid grid-cols-2">
+   <main className=" min-h-screen w-full grid grid-cols-2 max-xl:grid-cols-1 bg-slate-900">
    {children}
-   <div className="img h-full w-full flex justify-end items-center">
-    <Image alt="auth-img" src={'/icons/auth-image.svg'} height={400} width={400}></Image>
+   <div className="img h-full w-full flex justify-end items-center max-xl:hidden relative">
+    <Image className="rounded-lg object-contain" alt="auth-img" src={'/icons/Designer.png'} fill ></Image>
    </div>
    </main>
   );

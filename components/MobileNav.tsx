@@ -21,7 +21,7 @@ import { userContext } from '@/provider/userContextProvider'
     const pathname = usePathname()
     const user = useContext(userContext)
    return (
-   <section className="mobile_nav flex flex-row justify-between p-6 md:hidden">
+   <section className="mobile_nav bg-slate-800 text-white flex flex-row justify-between p-6 md:hidden">
     <Link href='/'>
     
     <Image src={'/icons/logo.svg'} height={50} width={50} alt='no image'></Image>
@@ -33,8 +33,8 @@ import { userContext } from '@/provider/userContextProvider'
   <Image src={'/icons/hamburger.svg'} height={50} width={50} alt='no image'></Image>
   
   </SheetTrigger>
-  <SheetContent className='bg-white py-16' side={'left'}>
-  <nav className='flex flex-col gap-4 bg-white'>
+  <SheetContent className='bg-slate-800 py-16' side={'left'}>
+  <nav className='flex flex-col gap-4 bg-slate-800'>
          
             {
                 sidebarLinks.map((val) => {
@@ -59,7 +59,9 @@ import { userContext } from '@/provider/userContextProvider'
                     )
                 })
             }
-            <PlaidLink user={user} variant='ghost'></PlaidLink>
+         
+            <PlaidLink user={user} variant='ghost' ></PlaidLink>
+            
         </nav>
   </SheetContent>
 </Sheet>

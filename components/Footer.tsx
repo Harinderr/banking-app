@@ -21,8 +21,8 @@ const Footer = ({user}:FooterProps) => {
       {user?.firstName.slice(0,1).toUpperCase()}
       </div>
         <div>
-            <div className=" text-black-2 font-bold">{user?.firstName}</div>
-            <div className=" text-black-2 font-semibold">{user?.email}</div>
+            <div className=" text-white font-bold">{user?.firstName}</div>
+            <div className=" text-white font-semibold">{user?.email}</div>
         </div>
         </div>
         <div className="footer_image" onClick={handleLogout}>

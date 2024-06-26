@@ -18,13 +18,8 @@ const Sidebar = ({user}:SiderbarProps) => {
             href={'/'}
             className='mb-8 font-semibold cursor-pointer text-center flex flex-row items-center gap-2'
             >
-                {/* <Image src={'/icons/logo.svg'}
-                width={30}
-                height={30}
-                alt='no image'
-                className='size-[24px] max-xl:size-14'
-                /> */}
-                <h1 className=' text-4xl text-black-1 max-xl:text-xl '>Bankoo</h1>
+                
+                <h1 className=' text-4xl text-white max-xl:text-xl '>Bankoo</h1>
             </Link>
             {
                 sidebarLinks.map((val) => {

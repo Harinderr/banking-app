@@ -96,10 +96,11 @@ const userData  = {
 
 
   return (
-    <section className=' shadow-lg h-screen '>
-      <div className="left w-full p-8    h-screen flex overflow-y-scroll flex-col justify-center ">
+    <section className=' shadow-lg h-screen max-xl:w-2/3 max-sm:w-full mx-auto'>
+      <div className="left w-full p-8    h-screen flex   flex-col justify-center  ">
       { (!user ) ? ( 
-        <div className="formWrapper  w-3/5 h-full mx-auto ">
+        <div className="formWrapper flex justify-center items-center overflow-y-scroll  ">
+          <div className="auth_container w-4/5 h-full   mx-auto">
       <Link href='/' className='flex flex-row items-center justify-center gap-2'>
     
     {/* <Image src={'/icons/logo.svg'} height={50} width={50} alt='no image'></Image> */}
@@ -167,6 +168,7 @@ const userData  = {
             </Link>
     }
     </p>
+    </div>
     </div>
    ) : (
    type != 'signin' && ( <>

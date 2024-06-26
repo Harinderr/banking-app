@@ -15,8 +15,8 @@ const MyBanks: React.FC<MyBanksProps> = async () => {
     userId: loggedIn.$id 
   })
  return (
-    <section className='flex'>
-      <div className="my-banks">
+    <section className='flex bg-slate-900 '>
+      <div className="my-banks ">
         <HeaderBox 
           title="My Bank Accounts"
           subtext="Effortlessly manage your banking activites."

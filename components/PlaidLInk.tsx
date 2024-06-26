@@ -49,17 +49,16 @@ const PlaidLink: React.FC<PlaidLinkProps> = ({ user, variant }) => {
           Connect Bank
         </Button>
       ) : variant === 'ghost' ? (
-        <Button className='sidebar-link flex gap-2' onClick={() => open()} disabled={!ready}>
-              <Image
-                src={'/icons/connect-bank.svg'}
-                height={24}
-                width={24}
-                alt='connect image'
-                ></Image>
+        <Button className='sidebar-link' onClick={() => open()} disabled={!ready}>
            
-           <p className='text-lg'>Connect Bank</p> 
-          
-        </Button>
+        <div className="size-6 relative">
+        <Image src={'/icons/connect-bank.svg'} alt='no img' fill ></Image>
+        
+        </div>
+       <p >Connect Bank</p>
+      
+
+</Button>
       ) : (
         <Button className='sidebar-link' onClick={() => open()} disabled={!ready}>
            
