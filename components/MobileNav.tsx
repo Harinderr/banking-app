@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { RxHamburgerMenu } from "react-icons/rx";
 import {
     Sheet,
     SheetClose,
@@ -16,21 +17,22 @@ import {
 import PlaidLink from './PlaidLInk'
 import { useContext } from 'react'
 import { userContext } from '@/provider/userContextProvider'
+import Footer from './Footer'
  
  const MobileNav = () => {
     const pathname = usePathname()
     const user = useContext(userContext)
    return (
-   <section className="mobile_nav bg-slate-800 text-white flex flex-row justify-between p-6 md:hidden">
+   <section className="mobile_nav bg-slate-800 text-white flex flex-row justify-between p-4 md:hidden">
     <Link href='/'>
     
-    <Image src={'/icons/logo.svg'} height={50} width={50} alt='no image'></Image>
+    <h1 className=' text-4xl font-semibold text-white max-xl:text-xl '>Bankoo</h1>
     </Link>
    
 
     <Sheet>
   <SheetTrigger>
-  <Image src={'/icons/hamburger.svg'} height={50} width={50} alt='no image'></Image>
+  <RxHamburgerMenu className='text-4xl' />
   
   </SheetTrigger>
   <SheetContent className='bg-slate-800 py-16' side={'left'}>
@@ -61,6 +63,7 @@ import { userContext } from '@/provider/userContextProvider'
             }
          
             <PlaidLink user={user} variant='ghost' ></PlaidLink>
+            <Footer user={user}></Footer>
             
         </nav>
   </SheetContent>
